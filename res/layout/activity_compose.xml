@@ -8,26 +8,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ComposeActivity" >
 
-    <EditText
-        android:id="@+id/etCompose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
+    <!--<Button
         android:id="@+id/bCompose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etCompose"
-        android:onClick="onCompose"
+        android:layout_below="@+id/tvCharsLeft"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
-        android:text="@string/compose_tweet" />
+        android:layout_marginTop="46dp"
+        android:onClick="onCompose"
+        android:text="@string/compose_tweet" />-->
+
+    <TextView
+        android:id="@+id/tvCharsLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxLength="140"
+        android:text="@string/chars_left"
+        android:textColor="@android:color/darker_gray" />
+
+    <EditText
+        android:id="@+id/etCompose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCharsLeft"
+        android:layout_below="@+id/tvCharsLeft"
+        android:background="@null"
+        android:ems="10"
+        android:hint="@string/compose_hint" />
 
 </RelativeLayout>

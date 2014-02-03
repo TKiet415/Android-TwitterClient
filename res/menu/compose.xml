@@ -1,9 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_tweet"
+        android:icon="@drawable/ic_action_tweet"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        android:showAsAction="always"
+        android:onClick="onTweet"
         android:title="@string/action_settings"/>
 
 </menu>

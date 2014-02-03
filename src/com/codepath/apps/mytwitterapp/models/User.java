@@ -3,20 +3,55 @@ package com.codepath.apps.mytwitterapp.models;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class User {
-	private String name;
-	private long uid;
-	private String screenName;
-	private String profileImageUrl;
-	private int numTweets;
-	private int followersCount;
-	private int friendsCount;
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
 
-    public String getName() {
+@Table(name = "user")
+public class User extends Model {
+	@Column(name = "name", index = true)
+	private String name;
+	
+	@Column(name = "uid", index = true)
+	private long uid;
+	
+	@Column(name = "screen_name", index = true)
+	private String screenName;
+	
+	@Column(name = "profile_image_url", index = true)
+	private String profileImageUrl;
+	
+	@Column(name = "num_tweets", index = true)
+	private int numTweets;
+	
+	@Column(name = "followers_count", index = true)
+	private int followersCount;
+	
+	@Column(name = "friends_count", index = true)
+	private int friendsCount;
+	
+	public User() {
+		super();
+	}
+
+    public User(String name, long uid, String screenName,
+			String profileImageUrl, int numTweets, int followersCount,
+			int friendsCount) {
+		super();
+		this.name = name;
+		this.uid = uid;
+		this.screenName = screenName;
+		this.profileImageUrl = profileImageUrl;
+		this.numTweets = numTweets;
+		this.followersCount = followersCount;
+		this.friendsCount = friendsCount;
+	}
+
+	public String getName() {
         return name;
     }
 
-    public long getId() {
+    public long getUid() {
         return uid;
     }
 

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.activeandroid.ActiveAndroid;
 import com.codepath.apps.mytwitterapp.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -37,6 +38,26 @@ public class TimelineActivity extends Activity {
 				
 				adapter = new TweetsAdapter(getBaseContext(), tweets);
 				lvTweets.setAdapter(adapter);
+				
+				ActiveAndroid.beginTransaction();
+				try {
+					for (Tweet tweetInstance: tweets) {
+						tweetInstance.body = "body";
+						tweetInstance.date = "date";
+						tweetInstance.favorited = ((tweetInstance.favorited) ? true : false);
+						tweetInstance.retweeted = ((tweetInstance.retweeted) ? true : false);
+						tweetInstance.save();
+					}
+					ActiveAndroid.setTransactionSuccessful();
+				} finally {
+					ActiveAndroid.endTransaction();
+				}
+				/*Tweet tweetInstance = new Tweet();
+				tweetInstance.body = "body";
+				tweetInstance.date = "date";
+				tweetInstance.favorited = ((tweetInstance.favorited) ? true : false);
+				tweetInstance.retweeted = ((tweetInstance.retweeted) ? true : false);
+				tweetInstance.save();*/
 				//super.onSuccess(arg0);
 			}
 		});
@@ -68,7 +89,7 @@ public class TimelineActivity extends Activity {
 		
 		Tweet lastTweet = (Tweet) lvTweets.getItemAtPosition(totalItemsCount - 1);
 		
-		MyTwitterApp.getRestClient().getAdditionalHomeTimeline(lastTweet.getId(), new JsonHttpResponseHandler() {
+		MyTwitterApp.getRestClient().getAdditionalHomeTimeline(lastTweet.getUid() - 1, new JsonHttpResponseHandler() {
 			
 			public void onSuccess(JSONArray json) {
 				Log.d("DEBUG", json.toString());
