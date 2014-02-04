@@ -37,7 +37,13 @@ public class ComposeActivity extends Activity {
 					int count) {
 				// TODO Auto-generated method stub
 				length = etCompose.getText().length();
-				tvCharsLeft.setText("Characters left: " + (140 - length));
+				
+				if (length == 0)
+					tvCharsLeft.setText("No input.");
+				else if (length > 140)
+					tvCharsLeft.setText("Exceeding maximum input for tweet. Please delete " + (140 - length) + " characters.");
+				else
+					tvCharsLeft.setText("Characters left: " + (140 - length));
 
 				if (length > 120) {
 					tvCharsLeft.setTextColor(Color.RED);

@@ -10,7 +10,7 @@
     <string name="title_activity_compose">Compose a Message</string>
     <string name="compose_tweet">Compose</string>
     <string name="compose_hint">Click on the top right to compose message.</string>
-    <string name="chars_left">Characters left: 140</string>
+    <string name="chars_left">No input.</string>
     <string name="profile">Profile</string>
 
 </resources>
