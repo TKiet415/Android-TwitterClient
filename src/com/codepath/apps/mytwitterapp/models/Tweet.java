@@ -3,6 +3,7 @@ package com.codepath.apps.mytwitterapp.models;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.json.JSONArray;
@@ -14,9 +15,11 @@ import android.net.ParseException;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
 @Table(name = "Tweet")
 public class Tweet extends Model {
+	
 	@Column(name = "body", index = true)
 	public String body;
 	
@@ -102,6 +105,10 @@ public class Tweet extends Model {
         }
         return tweet;
     }
+    
+	public static List<Tweet> getAll() {
+		return new Select().from(Tweet.class).execute();
+	}
 
     public static ArrayList<Tweet> fromJson(JSONArray jsonArray) {
         ArrayList<Tweet> tweets = new ArrayList<Tweet>(jsonArray.length());

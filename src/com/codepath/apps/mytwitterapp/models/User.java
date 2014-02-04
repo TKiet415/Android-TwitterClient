@@ -1,5 +1,7 @@
 package com.codepath.apps.mytwitterapp.models;
 
+import java.util.List;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -7,7 +9,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-@Table(name = "user")
+@Table(name = "User")
 public class User extends Model {
 	@Column(name = "name", index = true)
 	private String name;
@@ -46,6 +48,10 @@ public class User extends Model {
 		this.followersCount = followersCount;
 		this.friendsCount = friendsCount;
 	}
+
+    public List<Tweet> tweets() {
+    	return getMany(Tweet.class, "Tweet");
+    }
 
 	public String getName() {
         return name;

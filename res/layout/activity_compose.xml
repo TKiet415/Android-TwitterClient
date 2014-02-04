@@ -8,16 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ComposeActivity" >
 
-    <!--<Button
-        android:id="@+id/bCompose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvCharsLeft"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
-        android:onClick="onCompose"
-        android:text="@string/compose_tweet" />-->
-
+    
     <TextView
         android:id="@+id/tvCharsLeft"
         android:layout_width="wrap_content"

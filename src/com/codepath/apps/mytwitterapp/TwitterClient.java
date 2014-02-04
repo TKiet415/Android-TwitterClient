@@ -1,10 +1,14 @@
 package com.codepath.apps.mytwitterapp;
 
+import java.util.List;
+
 import org.scribe.builder.api.Api;
 import org.scribe.builder.api.TwitterApi;
 
 import android.content.Context;
 
+import com.activeandroid.query.Select;
+import com.codepath.apps.mytwitterapp.models.Tweet;
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -41,6 +45,10 @@ public class TwitterClient extends OAuthBaseClient {
     	String url = getApiUrl("statuses/home_timeline.json");
     	client.get(url, new RequestParams("max_id", id.toString()), handler);
     }
+    
+    public static List<Tweet> getAll() {
+		return new Select().from(Tweet.class).execute();
+	}
     
     public void postTweet(String tweet, AsyncHttpResponseHandler handler) {
     	String url = getApiUrl("statuses/update.json");

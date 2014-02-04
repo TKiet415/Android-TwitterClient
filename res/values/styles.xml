@@ -11,17 +11,17 @@
             backward-compatibility can go here.
         -->
     </style>
-
+   
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
+
     <style name="ptr_text">
 
-	    <!-- Change the text style and color -->
-	    <item name="android:textStyle">bold|italic</item>
-	    <item name="android:textColor">#cccccc</item>
-	</style>
+        <!-- Change the text style and color -->
+        <item name="android:textStyle">bold|italic</item>
+        <item name="android:textColor">#cccccc</item>
+    </style>
 
 </resources>
