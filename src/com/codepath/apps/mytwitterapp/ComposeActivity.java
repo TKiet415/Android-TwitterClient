@@ -75,6 +75,10 @@ public class ComposeActivity extends Activity {
 
 		String tweet = etCompose.getText().toString();
 		
+		if (length == 0) {
+			Toast.makeText(this, "You don't have any inputs. In order to tweet, you must type a message.", Toast.LENGTH_LONG).show();
+		}
+		
 		if (length < 141) {
 
 			MyTwitterApp.getRestClient().postTweet(tweet,
@@ -97,22 +101,12 @@ public class ComposeActivity extends Activity {
 						}
 					});
 		}
+		
+		if (length > 140) {
+			Toast.makeText(this, "Your tweet exceeds the maximum amount of characters.", Toast.LENGTH_LONG).show();
+		}
+		
 
 	}
-
-	/*
-	 * public void onCompose(View v) { String tweet =
-	 * etCompose.getText().toString();
-	 * MyTwitterApp.getRestClient().postTweet(tweet, new
-	 * JsonHttpResponseHandler() {
-	 * 
-	 * @Override public void onSuccess(JSONObject json) { Log.d("DEBUG",
-	 * "Success"); Toast.makeText(ComposeActivity.this, "Hold on to your butts",
-	 * Toast.LENGTH_LONG).show(); //setResult(RESULT_OK);
-	 * ComposeActivity.this.finish(); super.onSuccess(json); }
-	 * 
-	 * @Override public void onFailure(Throwable arg0, JSONObject json) {
-	 * Log.d("DEBUG", "Failed"); super.onFailure(arg0, json); } }); }
-	 */
 
 }
