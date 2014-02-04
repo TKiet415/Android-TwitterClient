@@ -41,7 +41,7 @@ public class ComposeActivity extends Activity {
 				if (length == 0)
 					tvCharsLeft.setText("No input.");
 				else if (length > 140)
-					tvCharsLeft.setText("Exceeding maximum input for tweet. Please delete " + (140 - length) + " characters.");
+					tvCharsLeft.setText("Exceeding maximum input for tweet. Please delete " + (-(140 - length)) + ((length == 141) ? " character." : " characters."));
 				else
 					tvCharsLeft.setText("Characters left: " + (140 - length));
 
